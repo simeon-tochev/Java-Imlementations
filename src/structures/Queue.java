@@ -25,7 +25,6 @@ public class Queue<T> implements Cloneable,Iterable<T> {
 	
 	/** Add an element to the tail of the queue */
 	public void enqueue(T element) {
-		printinf();
 		if (empty()) {
 			arr[0] = element;
 			head = 0;
@@ -41,7 +40,6 @@ public class Queue<T> implements Cloneable,Iterable<T> {
 	
 	/** Returns the element at the head of the queue and removes it */
 	public T dequeue() {
-		printinf();
 		if(empty()) {
 			System.out.println("Queue is empty");
 			return null;
@@ -150,7 +148,9 @@ public class Queue<T> implements Cloneable,Iterable<T> {
 		}
 	}
 	
+	/*
 	public void printinf() {
 		System.out.println("Head - " + Integer.toString(head) + ", Tail - " + Integer.toString(tail) + ", Size - " + Integer.toString(size) + ", Capacity - " + Integer.toString(capacity));
 	}
+	*/
 }
