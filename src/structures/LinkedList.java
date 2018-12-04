@@ -1,10 +1,18 @@
 package structures;
 
-public class LinkedList<T> {
+import java.util.Iterator;
+
+public class LinkedList<T> implements Cloneable, Iterable<T> {
+	@SuppressWarnings("hiding")
 	private class Node<T> {
 		public Node(T el) {
 			data = el;
 			next = null;
+		}
+		
+		public Node(T el, Node<T> next) {
+			data = el;
+			this.next = next;
 		}
 		
 		public T data;
@@ -20,7 +28,7 @@ public class LinkedList<T> {
 	}
 	
 	public void add(T el) {
-		getLastNode().next = new Node(el);
+		getLastNode().next = new Node<T>(el);
 	}
 	
 	public T get(int index) {
@@ -51,6 +59,42 @@ public class LinkedList<T> {
 			curr = curr.next;
 		}
 		return curr;
+	}
+	
+	// Overridden Methods
+	
+	@Override
+	public LinkedList<T> clone(){
+		LinkedList<T> list = new LinkedList<T>();
+		for(T el : this) {
+			list.add(el);
+		}
+		return list;
+	}
+	
+	@Override
+	public Iterator<T> iterator() {
+		return new LinkedListIterator<T>();
+	}
+	
+	@SuppressWarnings("hiding")
+	private class LinkedListIterator<T> implements Iterator<T> {
+		
+		@SuppressWarnings("unchecked")
+		private Node<T> curr = new Node<T>(null, (Node<T>) head);
+		
+		@Override
+		public boolean hasNext() {
+			return curr.next != null;
+		}
+		
+		@Override
+		public T next() {
+			T el = curr.data;
+			curr = curr.next;
+			return el;
+		}
+		
 	}
 	
 }
