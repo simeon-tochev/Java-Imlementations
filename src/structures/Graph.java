@@ -1,5 +1,5 @@
 package structures;
 
-public class Graph<T> {
+public abstract class Graph<T> {
 	
 }
