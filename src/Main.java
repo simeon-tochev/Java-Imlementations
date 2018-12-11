@@ -11,6 +11,8 @@ public class Main {
 		System.out.println(Arrays.toString(InsertionSort.sort(bigarr)));
 		System.out.println(Arrays.toString(BubbleSort.sort(bigarr)));
 		System.out.println(Arrays.toString(SelectionSort.sort(bigarr)));
+		System.out.println(Arrays.toString(QuickSort.sort(bigarr)));
+		System.out.println(Arrays.toString(MergeSort.sort(bigarr)));
 	}
 
 }
