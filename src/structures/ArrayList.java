@@ -2,6 +2,7 @@ package structures;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import algorithms.sorting.QuickSort;
 
 public class ArrayList<T> implements Cloneable, Iterable<T>{
 	
@@ -79,7 +80,7 @@ public class ArrayList<T> implements Cloneable, Iterable<T>{
 		return size;
 	}
 	
-	public boolean conatins(T el) {
+	public boolean contains(T el) {
 		for(T e: arr) {
 			if(el == e) {
 				return true;
@@ -90,6 +91,16 @@ public class ArrayList<T> implements Cloneable, Iterable<T>{
 	public boolean isEmpty() {
 		return size == 0;
 	}
+	
+	public String toString() {
+		return arr.toString();
+		
+	}
+	
+	public void print() {
+		System.out.println(toString());
+	}
+	
 	
 	// Private Methods
 	
@@ -122,6 +133,7 @@ public class ArrayList<T> implements Cloneable, Iterable<T>{
 	public Iterator<T> iterator() {
 		return new ArrayListIterator<T>();
 	}
+	
 	
 	@SuppressWarnings("hiding")
 	private class ArrayListIterator<T> implements Iterator<T>{

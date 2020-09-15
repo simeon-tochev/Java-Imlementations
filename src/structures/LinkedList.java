@@ -27,6 +27,11 @@ public class LinkedList<T> implements Cloneable, Iterable<T> {
 		size = 0;
 	}
 	
+	public LinkedList(T el) {
+		head = new Node<T>(el);
+		size = 1;
+	}
+	
 	public void add(T el) {
 		if(isEmpty()) {
 			head = new Node<T>(el);
@@ -87,6 +92,11 @@ public class LinkedList<T> implements Cloneable, Iterable<T> {
 	}
 	
 	public boolean contains(T el) {
+		for(T obj: this) {
+			if(obj.equals(el)) {
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -96,6 +106,18 @@ public class LinkedList<T> implements Cloneable, Iterable<T> {
 	
 	public int getSize() {
 		return size;
+	}
+	
+	public String toString() {
+		String str = "";
+		for(T obj: this) {
+			str += obj.toString();
+		}
+		return str;
+	}
+	
+	public void print() {
+		System.out.println(toString());
 	}
 	
 	private Node<T> getLastNode(){
